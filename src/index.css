@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+
+.heading {
+    margin: 1rem;
+}
+
+.form-input {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    height: 3rem;
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+.time{
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+.form-input input,
+button {
+    border: none;
+    outline: none;
+}
+
+.form-input input {
+    background-color: antiquewhite;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.form-input button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.todo {
+    border: 2px solid black;
+    margin: 1rem;
+    padding: 1rem;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-checkbox {
+    display: flex;
+    gap: 1rem;
+    text-transform: capitalize;
+}
+
+.todo-btn {
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .8s;
+}
+
+.todo-btn:hover {
+    color: red;
+    transition: .8s;
+}
+
+input[type="checkbox"] {
+    height: 1.3rem;
+    width: 1.3rem;
+    accent-color: green;
+    cursor: pointer;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+    color: green;
+}

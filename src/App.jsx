@@ -1,13 +1,24 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css'
 import TodoForm from './TodoForm'
 import Todo from './Todo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+const getLocalTodo = () => {
+  let todo = localStorage.getItem('todo')
+
+  if (todo) {
+    return JSON.parse(localStorage.getItem('todo'))
+  }else{
+    return [];
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getLocalTodo());
   const addTodo = (newTodo) => {
     setTodos([...todos, newTodo])
   }
@@ -31,9 +42,13 @@ function App() {
       })
     })
   }
-  var newDate =  new Date().toLocaleString();
-  
- 
+  let newDate = new Date().toLocaleString();
+
+
+  useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(todos))
+  }, [todos])
+
   return (
     <div className='container'>
       <h1 className='heading'>Todo App <span className='time'>Time: {newDate}</span></h1>
